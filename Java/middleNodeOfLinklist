@@ -1,0 +1,38 @@
+package studydsa;
+class Node5{
+    int value;
+    Node5 next;
+    Node5(int value){
+        this.value = value;
+    }
+}
+
+public class Middle_Node_LinkedList {
+    public static int middle(Node5 head) {
+        Node5 fast = head.next;
+        Node5 slow = head;
+
+        while (fast != null && fast.next != null){
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+        return slow.next.value;
+    }
+
+
+    public static void main(String[] args) {
+        Node5 head = new Node5(10);
+        Node5 n2 = new Node5(20);
+        Node5 n3 = new Node5(30);
+        Node5 n4 = new Node5(40);
+        Node5 n5 = new Node5(50);
+        Node5 n6 = new Node5(60);
+        head.next = n2;
+        n2.next = n3;
+        n3.next = n4;
+        n4.next = n5;
+//        n5.next = n6;
+
+        System.out.println(middle(head));
+    }
+}
